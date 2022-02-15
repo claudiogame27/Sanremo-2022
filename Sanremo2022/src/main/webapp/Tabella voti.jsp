@@ -57,23 +57,43 @@ margin-right: 10px;
 
 </style>
 <body>
-<%
-session.setAttribute("token", "true");
-ArrayList<CArtisti> artisti= (ArrayList<CArtisti>)session.getAttribute("Artisti");
-int posizione = Integer.valueOf(request.getParameter("indice")).intValue();
-session.setAttribute("ind",posizione);
-%>
+<%ArrayList<CArtisti> artisti= (ArrayList<CArtisti>)session.getAttribute("Artisti"); %>
 <div id="header">
-<h1><a href="Index.jsp?voto=00">Sanremo 2022</a></h1>
+<h1><a href="Index.jsp">Sanremo 2022</a></h1>
 </div>
+
 <div id="main">
-<h3><%=artisti.get(posizione).getNome()%></h3>
-<img src="img/<%=artisti.get(posizione).Immagine() %>">
-<form method="POST" action="Index.jsp">
-Voto:
-<input type="number" max="10" min="-10" name="voto" >
-<input type="Submit" name="Invio">
-</form>
+<h1>Voti:</h1>
+<table>
+<%
+session.setAttribute("token2","true");
+int b=0;
+out.print("<tr>");
+for(int i=0;i<24;i++){
+
+out.print("<td>");
+out.print("<div class=\"card\" style=\"width: 200px;\">"+
+" <img class=\"card-img-top\" src=\"img/"+artisti.get(i).Immagine()+"\" alt=\"Card image cap\">"+
+ "<div class=\"card-body\">"+
+   "<h4 class=\"card-title\">"+artisti.get(i).getNome()+"</h4><p>");
+if(artisti.get(i).getVoto()==null){
+out.print("Non hai votato questo artista.");
+}else{
+out.print(artisti.get(i).getVoto()+"</p>");
+}
+out.print(
+ "</div>"+
+"</div>");
+out.print("</td>");
+b+=1;
+if(b==4){
+b=0;
+out.print("</tr><tr>");
+}
+}
+out.print("</tr>");
+%>
+</table>
 </div>
 </body>
 </html>

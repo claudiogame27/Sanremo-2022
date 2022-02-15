@@ -1,181 +1,281 @@
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import= "java.util.ArrayList"%>
-<%@ page import= "SanremoPackage.CArtisti"%>
+    <%@page import="java.util.ArrayList" %>
+    <%@page import="SanremoPackage.CArtisti" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Sanremo 2022</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<style>
+body {
+font-family: Tahoma;
+margin: 0;
+padding: 0;
+text-align: center;
+}
+
+a {
+text-decoration: none;
+color: darkblue;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+img {
+width: 175px;
+height: 250px;
+border: 2px solid #aaa;
+}
+
+#header {
+background-color: red;
+color: #fff;
+padding: 5px;
+}
+
+#header a{
+color: #fff;
+text-decoration: none;
+}
+
+#main table {
+margin: 0 auto;
+}
+
+#footer {
+font: 12px Tahoma;
+margin: 25px 0 50px 0;
+}
+
+#footer a {
+margin-right: 10px;
+}
+
+</style>
 </head>
 <body>
 
+
+<div id="header">
+<h1><a href="index.jsp">Sanremo</a></h1>
+</div>
+
+<div id="main">
+<h3>Artisti di Sanremo 2022</h3>
+<table>
 <%
-ArrayList<SanremoPackage.CArtisti> ArtistaAL= new ArrayList<SanremoPackage.CArtisti>();
 
-SanremoPackage.CArtisti Artista0 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista1 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista2 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista3 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista4 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista5 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista6 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista7 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista8 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista9 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista10 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista11 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista12 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista13 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista14 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista15 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista16 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista17 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista18 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista19 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista20 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista21 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista22 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista23 = new SanremoPackage.CArtisti();
-SanremoPackage.CArtisti Artista24 = new SanremoPackage.CArtisti();
+CArtisti Artist1 = new CArtisti();
+CArtisti Artist2 = new CArtisti();
+CArtisti Artist3 = new CArtisti();
+CArtisti Artist4 = new CArtisti();
+CArtisti Artist5 = new CArtisti();
+CArtisti Artist6 = new CArtisti();
+CArtisti Artist7 = new CArtisti();
+CArtisti Artist8 = new CArtisti();
+CArtisti Artist9 = new CArtisti();
+CArtisti Artist10 = new CArtisti();
+CArtisti Artist11 = new CArtisti();
+CArtisti Artist12 = new CArtisti();
+CArtisti Artist13 = new CArtisti();
+CArtisti Artist14 = new CArtisti();
+CArtisti Artist15 = new CArtisti();
+CArtisti Artist16 = new CArtisti();
+CArtisti Artist17 = new CArtisti();
+CArtisti Artist18 = new CArtisti();
+CArtisti Artist19 = new CArtisti();
+CArtisti Artist20 = new CArtisti();
+CArtisti Artist21 = new CArtisti();
+CArtisti Artist22 = new CArtisti();
+CArtisti Artist23 = new CArtisti();
+CArtisti Artist24 = new CArtisti();
+CArtisti Artist25= new CArtisti();
 
 
-Artista0.setNome ("Achille Lauro");
-Artista0.setImmagini("Achille lauro.jpg");
-ArtistaAL.add(Artista0);
+String token=(String)session.getAttribute("token");
 
-Artista1.setNome ("Aka 7even");
-Artista1.setImmagini("aka7even.jpg");
-ArtistaAL.add(Artista1);
+if(token!="true"){
+ArrayList<CArtisti> artisti= new ArrayList<CArtisti>();
 
-Artista2.setNome ("Ana Mena");
-Artista2.setImmagini("ana mena.jpg");
-ArtistaAL.add(Artista2);
+Artist1.setNome("Achille Lauro");
+Artist1.Immagine("Achille lauro.jpg");
+artisti.add(Artist1);
 
-Artista3.setNome ("Dargen D");
-Artista3.setImmagini("dargent d'amico.jpg");
-ArtistaAL.add(Artista3);
+Artist2.setNome("Aka 7even");
+Artist2.Immagine("aka7even.jpg");
+artisti.add(Artist2);
 
-Artista4.setNome ("Ditonellapiaga con Rettore");
-Artista4.setImmagini("ditonellapiaga con reattore.jpg");
-ArtistaAL.add(Artista4);
+Artist3.setNome("Ana Mena");
+Artist3.Immagine("ana mena.jpg");
+artisti.add(Artist3);
 
-Artista5.setNome ("Elisa");
-Artista5.setImmagini("elisa.jpg");
-ArtistaAL.add(Artista5);
+Artist4.setNome("Dargen D'Amico");
+Artist4.Immagine("dargen d'amico.jpg");
+artisti.add(Artist4);
 
-Artista6.setNome ("Emma");
-Artista6.setImmagini("emma.jpg");
-ArtistaAL.add(Artista6);
+Artist5.setNome("ditonellapiega con rettore");
+Artist5.Immagine("ditonellapiega con reattore.jpg");
+artisti.add(Artist5);
 
-Artista7.setNome ("Fabrizio Moro");
-Artista7.setImmagini("fabrizio moro.jpg");
-ArtistaAL.add(Artista7);
+Artist6.setNome("Elisa");
+Artist6.Immagine("elisa.jpg");
+artisti.add(Artist6);
 
-Artista8.setNome ("Gianni Morandi");
-Artista8.setImmagini("gianni morandi.jpg");
-ArtistaAL.add(Artista8);
+Artist7.setNome("Emma");
+Artist7.Immagine("emma.jpg");
+artisti.add(Artist7);
 
-Artista9.setNome ("Giovanni Truppi");
-Artista9.setImmagini("giovanni truppi.jpg");
-ArtistaAL.add(Artista9);
+Artist8.setNome("Gianni Morandi");
+Artist8.Immagine("gianni morandi.jpg");
+artisti.add(Artist8);
 
-Artista10.setNome ("Giusy Ferreri");
-Artista10.setImmagini("Giusy ferreri.jpg");
-ArtistaAL.add(Artista10);
+Artist9.setNome("Giusy Ferreri");
+Artist9.Immagine("Giusy ferreri.jpg");
+artisti.add(Artist9);
 
-Artista11.setNome ("Highsnob e Hu");
-Artista11.setImmagini("highsnob e hu");
-ArtistaAL.add(Artista11);
+Artist10.setNome("Highsnob e Hu");
+Artist10.Immagine("highsnob e hu.jpg");
+artisti.add(Artist10);
 
-Artista12.setNome ("Irama");
-Artista12.setImmagini("Irama.jpg");
-ArtistaAL.add(Artista12);
+Artist11.setNome("Irama");
+Artist11.Immagine("Irama.jpg");
+artisti.add(Artist11);
 
-Artista13.setNome ("Iva Zanicchi");
-Artista13.setImmagini("iva zanicchi.jpg");
-ArtistaAL.add(Artista13);
+Artist12.setNome("Iva Zanicchi");
+Artist12.Immagine("iva zanicchi.jpg");
+artisti.add(Artist12);
 
-Artista14.setNome ("La Rappresentante di Lista");
-Artista14.setImmagini("la rappresentante di lista.jpg");
-ArtistaAL.add(Artista14);
+Artist13.setNome("La Rappresentante di Lista");
+Artist13.Immagine("la rappresentante di lista.jpg");
+artisti.add(Artist13);
 
-Artista15.setNome ("Le Vibrazioni");
-Artista15.setImmagini("Le vibrazioni.jpg");
-ArtistaAL.add(Artista15);
+Artist14.setNome("Le Vibrazioni");
+Artist14.Immagine("Le vibrazioni.jpg");
+artisti.add(Artist14);
 
-Artista16.setNome ("Mahmood e Blanco");
-Artista16.setImmagini("mahmood e blanco.jpg");
-ArtistaAL.add(Artista16);
+Artist15.setNome("Mahmood e Blanco");
+Artist15.Immagine("mahmood e blanco.jpg");
+artisti.add(Artist15);
 
-Artista17.setNome ("Massimo Ranieri");
-Artista17.setImmagini("massimo ranieri.jpg");
-ArtistaAL.add(Artista17);
+Artist16.setNome("Massimo Ranieri");
+Artist16.Immagine("massimo ranieri.jpg");
+artisti.add(Artist16);
 
-Artista18.setNome ("Matteo Romano");
-Artista18.setImmagini("Matteo romano.jpg");
-ArtistaAL.add(Artista18);
+Artist17.setNome("Matteo Romano");
+Artist17.Immagine("Matteo romano.jpg");
+artisti.add(Artist17);
 
-Artista19.setNome ("Michele Bravi");
-Artista19.setImmagini("michele bravi.jpg");
-ArtistaAL.add(Artista19);
+Artist18.setNome("Michele Bravi");
+Artist18.Immagine("michele bravi.jpg");
+artisti.add(Artist18);
 
-Artista20.setNome ("Noemi");
-Artista20.setImmagini("noemi.jpg");
-ArtistaAL.add(Artista20);
+Artist19.setNome("Noemi");
+Artist19.Immagine("noemi.jpg");
+artisti.add(Artist19);
 
-Artista21.setNome ("Rkomi");
-Artista21.setImmagini("rkomi.jpg");
-ArtistaAL.add(Artista21);
+Artist20.setNome("Rkomi");
+Artist20.Immagine("rkomi.jpg");
+artisti.add(Artist20);
 
-Artista22.setNome ("Sangiovanni");
-Artista22.setImmagini("Sangiovanni.jpg");
-ArtistaAL.add(Artista22);
+Artist21.setNome("Sangiovanni");
+Artist21.Immagine("Sangiovannni.jpg");
+artisti.add(Artist21);
 
-Artista23.setNome ("Tananai");
-Artista23.setImmagini("tananai.jpg");
-ArtistaAL.add(Artista23);
+Artist22.setNome("Tananai");
+Artist22.Immagine("tananai.jpg");
+artisti.add(Artist22);
 
-Artista24.setNome ("Yuman");
-Artista24.setImmagini("Yuman.jpg");
-ArtistaAL.add(Artista24);
+Artist23.setNome("Yuman");
+Artist23.Immagine("Yuman.jpg");
+artisti.add(Artist23);
+
+Artist24.setNome("Fabrizio Moro");
+Artist24.Immagine("fabrizio moro.jpg");
+artisti.add(Artist24);
+
+Artist25.setNome("giovanni truppi");
+Artist25.Immagine("giovanni truppi.jpg");
+artisti.add(Artist25);
+
+session.setAttribute("Artisti",artisti);
+
+int b=0;
+out.print("<tr>");
+for(int i=0;i<25;i++){
+out.print("<td>");
+out.print("<div class=\"card\" style=\"width: 200px;\">"+
+" <img class=\"card-img-top\" src=\"img/"+artisti.get(i).Immagine()+"\" alt=\"Card image cap\">"+
+ "<div class=\"card-body\">"+
+   "<h6 class=\"card-title\">"+artisti.get(i).getNome()+"</h6>"+
+   "<a href=\"VotiArtisti.jsp?indice="+i+"\" class=\"btn btn-primary\">Vota questo artista</a>"+
+ "</div>"+
+"</div>");
+out.print("</td>");
+b+=1;
+if(b==4){
+b=0;
+out.print("</tr><tr>");
+}
+}
+
+}else{
+ArrayList<CArtisti> artisti2= (ArrayList<CArtisti>)session.getAttribute("Artisti");
+
+String token2 = (String)session.getAttribute("token2");
+if(token2!="true"){
+int indic = (int)session.getAttribute("ind");
+String posOneg="";
+String temp=request.getParameter("voto");
+if(temp!=""){
+int voto = Integer.valueOf(request.getParameter("voto")).intValue();
+if(voto>0){
+posOneg="Hai inserito un voto positivo.";
+}else if(voto<0){
+posOneg="Hai inserito un voto negativo.";
+}else if(voto==0){
+posOneg="Hai inserito un voto neutrale.";
+}
+}
+artisti2.get(indic).setVoto(posOneg);
+session.setAttribute("Artisti",artisti2);
+session.setAttribute("token2","false");
+
+}
+
+int b=0;
+out.print("<tr>");
+for(int i=0;i<25;i++){
+out.print("<td>");
+out.print("<div class=\"card\" style=\"width: 200px;\">"+
+" <img class=\"card-img-top\" src=\"img/"+artisti2.get(i).Immagine()+"\" alt=\"Card image cap\">"+
+ "<div class=\"card-body\">"+
+   "<h6 class=\"card-title\">"+artisti2.get(i).getNome()+"</h6>"+
+   "<a href=\"VotiArtisti.jsp?indice="+i+"\" class=\"btn btn-primary\">Vota questo artista</a>"+
+ "</div>"+
+"</div>");
+out.print("</td>");
+b+=1;
+if(b==4){
+b=0;
+out.print("</tr><tr>");
+}
+}
+}
 
 %>
-
-<table>
-		<tr>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(0).getImmagini() %>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(1).getImmagini() %>" width="250px" height="300px"></a></td>	
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(2).getImmagini() %>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(3).getImmagini() %>" width="250px" height="300px"></a></td>	
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(4).getImmagini() %>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(5).getImmagini() %>" width="250px" height="300px"></a></td>	
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(6).getImmagini() %>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(7).getImmagini() %>" width="250px" height="300px"></a></td>	
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(8).getImmagini() %>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(9).getImmagini()%>" width="250px" height="300px"></a></td>	
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(10).getImmagini()%>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(11).getImmagini()%>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(12).getImmagini()%>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(13).getImmagini()%>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(14).getImmagini()%>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(15).getImmagini()%>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(16).getImmagini()%>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(17).getImmagini()%>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(18).getImmagini()%>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(19).getImmagini()%>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(20).getImmagini()%>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(21).getImmagini()%>" width="250px" height="300px"></a></td>	
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(22).getImmagini()%>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(23).getImmagini()%>" width="250px" height="300px"></a></td>
-<td><a href="VotiArtisti.jsp"><img src="img/<%=ArtistaAL.get(24).getImmagini()%>" width="250px" height="300px"></a></td>
-		</tr>
+</tr>
+<tr>
+<td></td>
+<td><a href="Tabella voti.jsp">Tabella con tutti i voti</a></td>
+<td></td>
+</tr>
 </table>
+</div>
 
-
-
-
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,67 +1,49 @@
 package SanremoPackage;
+
 public class CArtisti {
 
-	String Nome;
-	String Cognome;
-	String Sesso;
-	int età;
-	String Immagini;
-	
+private String nome;
+private String voto;
+private String Immagine;
 
-	public CArtisti() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	public CArtisti(String nome, String cognome, String sesso, int età) {
-		super();
-		this.Nome = nome;
-		this.Cognome = cognome;
-		this.Sesso = sesso;
-		this.età = età;
-	}
+public CArtisti() {
+super();
+// TODO Auto-generated constructor stub
+}
 
-	public String getNome() {
-		return Nome;
-	}
+public CArtisti(String nome, String voto , String Immagine) {
+super();
+this.nome = nome;
+this.voto = voto;
+this.Immagine = Immagine;
+}
 
-	public void setNome(String nome) {
-		Nome = nome;
-	}
+public String getNome() {
+return nome;
+}
 
-	public String getCognome() {
-		return Cognome;
-	}
+public void setNome(String nome) {
+this.nome = nome;
+}
 
-	public void setCognome(String cognome) {
-		Cognome = cognome;
-	}
+public String getVoto() {
+return voto;
+}
 
-	public String getSesso() {
-		return Sesso;
-	}
+public void setVoto(String voto) {
+this.voto = voto;
+}
 
-	public void setSesso(String sesso) {
-		Sesso = sesso;
-	}
+public String Immagine() {
+return Immagine;
+}
 
-	public int getEtà() {
-		return età;
-	}
-
-	public void setEtà(int età) {
-		this.età = età;
-	}
-
-	public String getImmagini() {
-		return Immagini;
-	}
-
-	public void setImmagini(String immagini) {
-		Immagini = immagini;
-	}
-	
-	
+public void Immagine(String Immagine) {
+this.Immagine = Immagine;
 }
 
 
+
+
+
+}
