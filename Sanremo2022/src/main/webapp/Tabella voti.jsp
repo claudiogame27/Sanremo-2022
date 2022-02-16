@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@page import="java.util.ArrayList" %>
     <%@page import="SanremoPackage.CArtisti" %>
+    <%@page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +33,7 @@ border: 2px solid #aaa;
 }
 
 #header {
-background-color: #800000;
+background-color: Red;
 color: #fff;
 padding: 5px;
 }
@@ -57,13 +58,40 @@ margin-right: 10px;
 
 </style>
 <body>
+<% 
+Locale locale = request.getLocale();
+String language = locale.getLanguage();
+
+HashMap<String,String> LinguaITA = new HashMap<String, String>();
+
+LinguaITA.put("voto","Voti:");
+LinguaITA.put("Votazione", "Vota questo artista");
+LinguaITA.put("Tabellavoti","Tabella con tutti i voti");
+
+HashMap<String,String> LinguaENG = new HashMap<String, String>();
+
+LinguaENG.put("voto","Votes:");
+LinguaENG.put("Votazione", "Rate this artist");
+LinguaENG.put("Tabellavoti","table with all grades");
+
+HashMap<String,String> LinguaATT = new HashMap<String,String>();
+if(language=="it"){
+	LinguaATT = LinguaITA;
+	}else{
+		LinguaATT = LinguaENG;
+	}
+%>
+
+
+
+
 <%ArrayList<CArtisti> artisti= (ArrayList<CArtisti>)session.getAttribute("Artisti"); %>
 <div id="header">
 <h1><a href="Index.jsp">Sanremo 2022</a></h1>
 </div>
 
 <div id="main">
-<h1>Voti:</h1>
+<h1><%=LinguaATT.get("voto") %></h1>
 <table>
 <%
 session.setAttribute("token2","true");

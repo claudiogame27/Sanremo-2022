@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
     <%@page import="java.util.ArrayList" %>
     <%@page import="SanremoPackage.CArtisti" %>
+    <%@page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,13 +60,40 @@ margin-right: 10px;
 </head>
 <body>
 
+<% 
+Locale locale = request.getLocale();
+String language = locale.getLanguage();
+
+HashMap<String,String> LinguaITA = new HashMap<String, String>();
+
+LinguaITA.put("main","Artisti di Sanremo 2022");
+LinguaITA.put("Votazione", "Vota questo artista");
+LinguaITA.put("Tabellavoti","Tabella con tutti i voti");
+
+HashMap<String,String> LinguaENG = new HashMap<String, String>();
+
+LinguaENG.put("main","Artists of Sanremo 2022");
+LinguaENG.put("Votazione", "Rate this artist");
+LinguaENG.put("Tabellavoti","table with all grades");
+
+HashMap<String,String> LinguaATT = new HashMap<String,String>();
+if(language=="it"){
+	LinguaATT = LinguaITA;
+	}else{
+		LinguaATT = LinguaENG;
+	}
+
+
+
+%>
+
 
 <div id="header">
 <h1><a href="index.jsp">Sanremo</a></h1>
 </div>
 
 <div id="main">
-<h3>Artisti di Sanremo 2022</h3>
+<h3><%=LinguaATT.get("main") %></h3>
 <table>
 <%
 
@@ -93,7 +121,7 @@ CArtisti Artist21 = new CArtisti();
 CArtisti Artist22 = new CArtisti();
 CArtisti Artist23 = new CArtisti();
 CArtisti Artist24 = new CArtisti();
-CArtisti Artist25= new CArtisti();
+CArtisti Artist25 = new CArtisti();
 
 
 String token=(String)session.getAttribute("token");
@@ -211,7 +239,7 @@ out.print("<div class=\"card\" style=\"width: 200px;\">"+
 " <img class=\"card-img-top\" src=\"img/"+artisti.get(i).Immagine()+"\" alt=\"Card image cap\">"+
  "<div class=\"card-body\">"+
    "<h6 class=\"card-title\">"+artisti.get(i).getNome()+"</h6>"+
-   "<a href=\"VotiArtisti.jsp?indice="+i+"\" class=\"btn btn-primary\">Vota questo artista</a>"+
+   "<a href=\"VotiArtisti.jsp?indice="+i+"\" class=\"btn btn-primary\">"+LinguaATT.get("Votazione")+"</a>"+
  "</div>"+
 "</div>");
 out.print("</td>");
@@ -254,7 +282,7 @@ out.print("<div class=\"card\" style=\"width: 200px;\">"+
 " <img class=\"card-img-top\" src=\"img/"+artisti2.get(i).Immagine()+"\" alt=\"Card image cap\">"+
  "<div class=\"card-body\">"+
    "<h6 class=\"card-title\">"+artisti2.get(i).getNome()+"</h6>"+
-   "<a href=\"VotiArtisti.jsp?indice="+i+"\" class=\"btn btn-primary\">Vota questo artista</a>"+
+   "<a href=\"VotiArtisti.jsp?indice="+i+"\" class=\"btn btn-primary\">"+LinguaATT.get("Votazione")+"</a>"+
  "</div>"+
 "</div>");
 out.print("</td>");
@@ -270,7 +298,7 @@ out.print("</tr><tr>");
 </tr>
 <tr>
 <td></td>
-<td><a href="Tabella voti.jsp">Tabella con tutti i voti</a></td>
+<td><a href="Tabella voti.jsp"><%=LinguaATT.get("Tabellavoti") %></a></td>
 <td></td>
 </tr>
 </table>

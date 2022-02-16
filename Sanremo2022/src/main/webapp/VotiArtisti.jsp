@@ -32,7 +32,7 @@ border: 2px solid #aaa;
 }
 
 #header {
-background-color: #800000;
+background-color: Red;
 color: #fff;
 padding: 5px;
 }
@@ -57,6 +57,7 @@ margin-right: 10px;
 
 </style>
 <body>
+
 <%
 session.setAttribute("token", "true");
 ArrayList<CArtisti> artisti= (ArrayList<CArtisti>)session.getAttribute("Artisti");
